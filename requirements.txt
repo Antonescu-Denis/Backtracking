@@ -1,0 +1,49 @@
+    Descrierea problemei:
+
+Implementati un program in Python care, folosind tehnica de backtracking, sa genereze candidate pentru o parola de 6 caractere ce respecta urmatoarele conditii:
+
+    - 1 litera mare (A–Z)
+    - 1 cifra (0–9)
+    - 1 caracter special (din multimea: !, @, #, $)
+    - 3 litere mici (a–z)
+    - Ordinea caracterelor in parola este arbitrara.
+
+    Parola criptata:
+
+Parola reala nu va fi stocata in clar, ci sub forma unui hash SHA-256. Functia de criptare de utilizat este:
+
+---
+    import hashlib
+    
+    def get_hash(password):
+        return hashlib.sha256(password.encode()).hexdigest()
+---
+  
+Parola ce trebuie deslusita este: 0e000d61c1735636f56154f30046be93b3d71f1abbac3cd9e3f80093fdb357ad
+
+Cerintele aplicatiei:
+
+    - Generarea candidateleor: Implementati o functie recursiva de backtracking care sa construiasca candidate pentru parola, respectând constrângerile de compozitie mentionate.
+
+    - Verificarea candidatei: La formarea unui sir complet de 6 caractere care contine exact 1 litera mare, 1 cifra, 1 caracter special si 3 litere mici, calculati hash-ul acestuia folosind functia get_hash.
+
+    - Compararea hash-urilor: Comparati hash-ul candidatei cu hash-ul stocat al parolei reale. Daca cele doua hash-uri coincid, atunci ati gasit parola corecta.
+
+    - Output-ul programului: La gasirea parolei, afisati urmatoarele mesaje:
+        Parola gasita: <parola descifrata>
+        Numar apeluri recursive: <numarul total de apeluri recursive efectuate>
+
+    - Oprirea cautarii: Programul se va opri imediat ce se gasesc candidatele care corespund parolei reale.
+
+Exemplu de output:
+
+    Parola gasita: aB!1bc
+    Numar apeluri recursive: 12345
+
+https://kb.cunbm.utcluj.ro/mod/assign/view.php?id=93487
+
+
+# big letter: 65 - 90
+# 3 small letters: 97-122
+# digit: 48-57
+# special character: !33, #35, $36, @64
