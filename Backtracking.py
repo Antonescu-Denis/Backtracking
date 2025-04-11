@@ -39,6 +39,7 @@ def generate(arr, i, thingy):
             found = True
             print(f"The encrypted password is: {thingy}")
 
+print('Please wait while password is being crakced...')
 start_time = t.time()
 permutation(chars, 0, len(chars))
 print(f"Backtracking took {t.time() - start_time} seconds!\n")
